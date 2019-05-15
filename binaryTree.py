@@ -1,10 +1,10 @@
-class TreeNode:
+class Node:
     def __init__(self, val):
         self.value = val
         self.left = None
         self.right = None
 
-def preOrderTraversal(root: TreeNode):
+def preOrderTraversal(root: Node):
     """ Traverses each node of the tree recursively, printing in the following order : root -> left -> right """
     # recursive solution for pre=order traversal, iterative solution seems much harder!
     if root is None:
@@ -14,7 +14,7 @@ def preOrderTraversal(root: TreeNode):
     preOrderTraversal(root.right)
     return
 
-def postOrderTraversal(root: TreeNode):
+def postOrderTraversal(root: Node):
     """ Traverses the tree recursively, printing in the following order : left -> right -> root """
     if root is None:
         return
@@ -23,7 +23,7 @@ def postOrderTraversal(root: TreeNode):
     print(root.value)
     return
 
-def inOrderTraversal(root: TreeNode):
+def inOrderTraversal(root: Node):
     """ Traverses the tree recursively, printing the values in the following order : left -> root -> right """
     if root is None:
         return
