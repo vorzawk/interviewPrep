@@ -1,12 +1,11 @@
 from collections import deque
 def bfs(graph, s):
-    """ Find the shortest path from a given source vertex using bfs for unweighted graphs """
+    """ Find the shortest path from a given source vertex to all other vertices in an unweighted graph """
     dist = {s: 0}
     parent = {s: None}
     queue = deque([s])
     while queue:
         cur = queue.popleft()
-        # Process the node here if necessary
         for v in graph[cur]:
             if v not in dist:
                 queue.append(v)
@@ -28,6 +27,12 @@ def shortestPath(graph, s, t):
             print("{} -> ".format(u), end='')
         print(path[-1])
 
+if __name__ == '__main__':
+#    graph = {0:[1,3], 1:[0,2], 2:[1], 3:[0,4], 4:[3]}
+#    graph = {0:[1,2], 1:[0,2], 2:[0,1]}
+    graph = {0:[1], 1:[2], 2:[0]}
+    s = 0; t = 2
+    shortestPath(graph, s, t)
 
 
 
