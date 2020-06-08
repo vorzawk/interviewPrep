@@ -1,3 +1,4 @@
+from collections import deque
 class Node:
     def __init__(self, val):
         self.value = val
@@ -9,7 +10,7 @@ def preOrderTraversal(root: Node):
     # recursive solution for pre=order traversal, iterative solution seems much harder!
     if root is None:
         return
-    print(root.value)
+    print(root.value, end=' ')
     preOrderTraversal(root.left)
     preOrderTraversal(root.right)
     return
@@ -20,7 +21,7 @@ def postOrderTraversal(root: Node):
         return
     postOrderTraversal(root.left)
     postOrderTraversal(root.right)
-    print(root.value)
+    print(root.value, end=' ')
     return
 
 def inOrderTraversal(root: Node):
@@ -28,9 +29,30 @@ def inOrderTraversal(root: Node):
     if root is None:
         return
     inOrderTraversal(root.left)
-    print(root.value)
+    print(root.value, end=' ')
     inOrderTraversal(root.right)
     return
+
+def levelOrderTraversal(root: Node):
+    if root is None:
+        return
+    queue = deque([root])
+    while(queue):
+        curr = queue.popleft()
+        print(curr.value, end=' ')
+        if curr.left:
+            queue.append(curr.left)
+        if curr.right:
+            queue.append(curr.right)
+
+
+
+
+
+
+
+
+
 
 
 
